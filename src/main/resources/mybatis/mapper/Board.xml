@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="hellospring.demo.dao.BoardRepository">
+    <select id="getAllBoardList" resultType="hellospring.demo.dto.Board">
+        SELECT B.CREATE_TIME
+             , B.TITLE
+             , B.ID
+          FROM BOARD B;
+    </select>
+    <select id="getBoardById" resultType="hellospring.demo.dto.Board">
+        SELECT B.CONTENT
+             , B.CREATE_TIME
+             , B.TITLE
+             , B.ID
+          FROM BOARD B
+          WHERE B.ID = #{id};
+    </select>
+    <insert id="createBoard" parameterType="hellospring.demo.dto.Board">
+        INSERT INTO BOARD (TITLE, CONTENT) VALUES (#{TITLE}, #{CONTENT})
+    </insert>
+    
+</mapper>
