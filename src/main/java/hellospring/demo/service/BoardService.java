@@ -13,16 +13,16 @@ public class BoardService {
     @Autowired
     BoardRepository boardRepository;
 
-    public List<Board> getAllBoardList(){
+    public List<Board> getAllBoardList() {
         return boardRepository.getAllBoardList();
     }
 
-    public Board getBoardById(Integer id){
+    public Board getBoardById(Integer id) {
         return boardRepository.getBoardById(id);
     }
 
-    public void createBoard(Board board){
+    public void createBoard(Board board) {
         boardRepository.createBoard(board);
     }
-    
+
 }
