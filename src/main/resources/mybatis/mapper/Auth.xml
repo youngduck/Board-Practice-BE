@@ -6,5 +6,11 @@
     <insert id="createAuth" parameterType="hellospring.demo.dto.Auth">
         INSERT INTO Auth (NAME, EMAIL, PASSWORD) VALUES (#{NAME}, #{EMAIL}, #{PASSWORD})
     </insert>
-    
+
+     <select id="postLogin" resultType="hellospring.demo.dto.Auth">
+          SELECT ID,NAME,EMAIL,PASSWORD 
+          FROM AUTH
+          WHERE EMAIL=#{EMAIL};
+    </select>
+   
 </mapper>

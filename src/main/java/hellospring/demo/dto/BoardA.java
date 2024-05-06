@@ -5,14 +5,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+// import hellospring.demo.dto.Board;
+
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Auth {
-    Integer ID;
-    String NAME;
-    String EMAIL;
-    String PASSWORD;
+public class BoardA {
+    List<Board> datas;
+    Integer count;
 }

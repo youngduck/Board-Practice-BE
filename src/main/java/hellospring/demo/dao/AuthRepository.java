@@ -9,6 +9,10 @@ import hellospring.demo.dto.Auth;
 @Mapper
 public interface AuthRepository {
 
-    public void createAuth(Auth auth);
-    
+    // ANCHOR - 회원가입
+    void createAuth(Auth auth);
+
+    // ANCHOR - 로그인
+    Auth postLogin(Auth auth);
+
 }

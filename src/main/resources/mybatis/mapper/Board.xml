@@ -2,22 +2,43 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="hellospring.demo.dao.BoardRepository">
+    
     <select id="getAllBoardList" resultType="hellospring.demo.dto.Board">
-        SELECT B.CREATE_TIME
-             , B.TITLE
-             , B.ID
-          FROM BOARD B;
+        SELECT *
+            FROM BOARD B
+            ORDER BY B.id desc;
     </select>
+
+    
     <select id="getBoardById" resultType="hellospring.demo.dto.Board">
-        SELECT B.CONTENT
-             , B.CREATE_TIME
-             , B.TITLE
-             , B.ID
+        SELECT *
           FROM BOARD B
           WHERE B.ID = #{id};
     </select>
-    <insert id="createBoard" parameterType="hellospring.demo.dto.Board">
-        INSERT INTO BOARD (TITLE, CONTENT) VALUES (#{TITLE}, #{CONTENT})
-    </insert>
     
+
+    <select id="getBoardCount" resultType="Integer">
+        SELECT count(*) as total
+          FROM board;
+    </select>
+    
+    <insert id="createBoard" parameterType="hellospring.demo.dto.Board">
+        INSERT INTO BOARD (TITLE, CONTENT) VALUES (#{TITLE}, #{CONTENT});
+    </insert>
+
+    <update id="updateBoard" parameterType="hellospring.demo.dto.Board">
+        UPDATE BOARD
+        SET TITLE=#{TITLE}, CONTENT=#{CONTENT}
+        WHERE ID=#{ID};
+    </update>
+    
+    <update id="deleteBoardById" parameterType="Integer">
+        UPDATE BOARD
+        SET visible = 0
+        WHERE ID = #{ID};
+    </update>
+    
+    
+    
+
 </mapper>

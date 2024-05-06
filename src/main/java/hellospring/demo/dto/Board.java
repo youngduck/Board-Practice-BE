@@ -13,15 +13,9 @@ import lombok.Setter;
 @AllArgsConstructor
 
 public class Board {
-  
     Integer ID;
     String CONTENT;
     String TITLE;
     LocalDateTime CREATE_TIME;
-    
-
-    public boolean isValidTitle(String title){
-        return title !=null && title.length()<=10;
-    }
-
+    boolean VISIBLE;
 }
